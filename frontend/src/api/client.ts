@@ -5,13 +5,13 @@ import {
 } from "proto/helloworld_pb";
 import { GreeterClient } from "proto/helloworld_grpc_web_pb";
 
-export const sayHello = () => {
-  var client = new GreeterClient(
-    "http://" + window.location.hostname + ":8080",
-    null,
-    null
-  );
+var client = new GreeterClient(
+  "http://" + window.location.hostname + ":8080",
+  null,
+  null
+);
 
+export const sayHello = () => {
   // simple unary call
   var request = new HelloRequest();
   request.setName("World");
@@ -26,7 +26,9 @@ export const sayHello = () => {
       console.log(response.getMessage());
     }
   });
+};
 
+export const sayRepeatHello = () => {
   // server streaming call
   var streamRequest = new RepeatHelloRequest();
   streamRequest.setName("World");

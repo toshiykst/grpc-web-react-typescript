@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { sayHello } from "api/client";
+import { sayHello, sayRepeatHello } from "api/client";
 
 function App() {
   useEffect(() => {
     sayHello();
+    sayRepeatHello();
   }, []);
 
   return (
