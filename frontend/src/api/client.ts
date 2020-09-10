@@ -16,7 +16,7 @@ export const sayHello = () => {
   var request = new HelloRequest();
   request.setName("World");
 
-  client.sayHello(request, {}, (err: any, response: any) => {
+  client.sayHello(request, {}, (err, response) => {
     if (err) {
       console.log(
         `Unexpected error for sayHello: code = ${err.code}` +
@@ -24,6 +24,7 @@ export const sayHello = () => {
       );
     } else {
       console.log(response.getMessage());
+      console.log(response.toObject());
     }
   });
 };
@@ -35,10 +36,10 @@ export const sayRepeatHello = () => {
   streamRequest.setCount(5);
 
   var stream = client.sayRepeatHello(streamRequest, {});
-  stream.on("data", (response: any) => {
+  stream.on("data", (response) => {
     console.log(response.getMessage());
   });
-  stream.on("error", (err: any) => {
+  stream.on("error", (err) => {
     console.log(
       `Unexpected stream error: code = ${err.code}` +
         `, message = "${err.message}"`
