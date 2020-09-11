@@ -16,14 +16,14 @@
  *
  */
 
-var PROTO_PATH = __dirname + '/../protobuf/greeterservice.proto';
+const PROTO_PATH = __dirname + '/../protobuf/greeterservice.proto';
 
-var assert = require('assert');
-var async = require('async');
-var _ = require('lodash');
-var grpc = require('@grpc/grpc-js');
-var protoLoader = require('@grpc/proto-loader');
-var packageDefinition = protoLoader.loadSync(
+const assert = require('assert');
+const async = require('async');
+const _ = require('lodash');
+const grpc = require('@grpc/grpc-js');
+const protoLoader = require('@grpc/proto-loader');
+const packageDefinition = protoLoader.loadSync(
     PROTO_PATH,
     {keepCase: true,
      longs: String,
@@ -31,23 +31,23 @@ var packageDefinition = protoLoader.loadSync(
      defaults: true,
      oneofs: true
     });
-var protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
+const protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
 
-var greeterService = protoDescriptor.greeterservice;
+const greeterService = protoDescriptor.greeterservice;
 
 /**
  * @param {!Object} call
  * @param {function():?} callback
  */
-function doSayHello(call, callback) {
+const doSayHello = (call, callback) => {
   callback(null, {message: 'Hello! '+ call.request.name});
 }
 
 /**
  * @param {!Object} call
  */
-function doSayRepeatHello(call) {
-  var senders = [];
+const doSayRepeatHello = (call) => {
+  const senders = [];
   function sender(name) {
     return (callback) => {
       call.write({
@@ -56,7 +56,7 @@ function doSayRepeatHello(call) {
       _.delay(callback, 500); // in ms
     };
   }
-  for (var i = 0; i < call.request.count; i++) {
+  for (let i = 0; i < call.request.count; i++) {
     senders[i] = sender(call.request.name + i);
   }
   async.series(senders, () => {
@@ -67,8 +67,8 @@ function doSayRepeatHello(call) {
 /**
  * @return {!Object} gRPC server
  */
-function getServer() {
-  var server = new grpc.Server();
+const getServer = () => {
+  const server = new grpc.Server();
   server.addService(greeterService.GreeterService.service, {
     sayHello: doSayHello,
     sayRepeatHello: doSayRepeatHello,
@@ -77,7 +77,7 @@ function getServer() {
 }
 
 if (require.main === module) {
-  var server = getServer();
+  const server = getServer();
   server.bindAsync(
     '0.0.0.0:9090', grpc.ServerCredentials.createInsecure(), (err, port) => {
       assert.ifError(err);
