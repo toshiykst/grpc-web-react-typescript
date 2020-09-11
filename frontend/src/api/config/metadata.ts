@@ -8,4 +8,7 @@ const getDeadLine = () => {
   return `${deadline.getTime()}`;
 };
 
-export const unaryMetadata: grpcWeb.Metadata = { deadline: getDeadLine() };
+export const unaryMetadata: grpcWeb.Metadata = {
+  deadline: getDeadLine(),
+  "X-Custom-Header": "foobar",
+};
