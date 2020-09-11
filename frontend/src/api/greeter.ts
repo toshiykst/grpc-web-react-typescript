@@ -1,5 +1,6 @@
 import { HelloRequest, RepeatHelloRequest } from "proto/helloworld_pb";
 import { GreeterClient } from "proto/helloworld_grpc_web_pb";
+import { setRequestParams } from "utils/request";
 import { unaryMetadata } from "./config/metadata";
 
 const HOST = "http://" + window.location.hostname + ":8080";
@@ -14,15 +15,13 @@ export const sayHello = (
 ) => {
   // unary call
   const request = new HelloRequest();
-  request.setName(params.name);
+  setRequestParams(params, request);
   return client.sayHello(request, unaryMetadata, callback);
 };
 
 export const sayRepeatHello = (params: RepeatHelloRequest.AsObject) => {
   // server streaming call
-  const streamRequest = new RepeatHelloRequest();
-  streamRequest.setName(params.name);
-  streamRequest.setCount(params.count);
-
-  return client.sayRepeatHello(streamRequest);
+  const request = new RepeatHelloRequest();
+  setRequestParams(params, request);
+  return client.sayRepeatHello(request);
 };
