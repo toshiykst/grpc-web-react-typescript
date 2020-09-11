@@ -20,6 +20,24 @@ export namespace HelloRequest {
   }
 }
 
+export class HelloResponse extends jspb.Message {
+  getMessage(): string;
+  setMessage(value: string): HelloResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): HelloResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: HelloResponse): HelloResponse.AsObject;
+  static serializeBinaryToWriter(message: HelloResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): HelloResponse;
+  static deserializeBinaryFromReader(message: HelloResponse, reader: jspb.BinaryReader): HelloResponse;
+}
+
+export namespace HelloResponse {
+  export type AsObject = {
+    message: string,
+  }
+}
+
 export class RepeatHelloRequest extends jspb.Message {
   getName(): string;
   setName(value: string): RepeatHelloRequest;
@@ -42,19 +60,19 @@ export namespace RepeatHelloRequest {
   }
 }
 
-export class HelloReply extends jspb.Message {
+export class RepeatHelloResponse extends jspb.Message {
   getMessage(): string;
-  setMessage(value: string): HelloReply;
+  setMessage(value: string): RepeatHelloResponse;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): HelloReply.AsObject;
-  static toObject(includeInstance: boolean, msg: HelloReply): HelloReply.AsObject;
-  static serializeBinaryToWriter(message: HelloReply, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): HelloReply;
-  static deserializeBinaryFromReader(message: HelloReply, reader: jspb.BinaryReader): HelloReply;
+  toObject(includeInstance?: boolean): RepeatHelloResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: RepeatHelloResponse): RepeatHelloResponse.AsObject;
+  static serializeBinaryToWriter(message: RepeatHelloResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RepeatHelloResponse;
+  static deserializeBinaryFromReader(message: RepeatHelloResponse, reader: jspb.BinaryReader): RepeatHelloResponse;
 }
 
-export namespace HelloReply {
+export namespace RepeatHelloResponse {
   export type AsObject = {
     message: string,
   }

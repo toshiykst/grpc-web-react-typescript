@@ -16,7 +16,7 @@
  *
  */
 
-var PROTO_PATH = __dirname + '/../protobuf/helloworld.proto';
+var PROTO_PATH = __dirname + '/../protobuf/greeterservice.proto';
 
 var assert = require('assert');
 var async = require('async');
@@ -32,7 +32,8 @@ var packageDefinition = protoLoader.loadSync(
      oneofs: true
     });
 var protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
-var helloworld = protoDescriptor.helloworld;
+
+var greeterService = protoDescriptor.greeterservice;
 
 /**
  * @param {!Object} call
@@ -68,7 +69,7 @@ function doSayRepeatHello(call) {
  */
 function getServer() {
   var server = new grpc.Server();
-  server.addService(helloworld.Greeter.service, {
+  server.addService(greeterService.GreeterService.service, {
     sayHello: doSayHello,
     sayRepeatHello: doSayRepeatHello,
   });

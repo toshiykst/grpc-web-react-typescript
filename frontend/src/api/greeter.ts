@@ -1,11 +1,11 @@
-import { HelloRequest, RepeatHelloRequest } from "proto/helloworld_pb";
-import { GreeterClient } from "proto/helloworld_grpc_web_pb";
+import { HelloRequest, RepeatHelloRequest } from "proto/greeterservice_pb";
+import { GreeterServiceClient } from "proto/greeterservice_grpc_web_pb";
 import { setRequestParams } from "utils/request";
 import { unaryMetadata } from "./config/metadata";
 
 const HOST = "http://" + window.location.hostname + ":8080";
 
-const client = new GreeterClient(HOST);
+const client = new GreeterServiceClient(HOST);
 
 type UnaryCallback<T extends (...args: any) => any> = Parameters<T>[2];
 
