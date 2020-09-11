@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "grpc-tools": "^1.9.1",
+    "grpc_tools_node_protoc_ts": "^4.1.4"
+  }
+}

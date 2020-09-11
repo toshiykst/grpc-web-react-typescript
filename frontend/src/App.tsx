@@ -27,6 +27,8 @@ function App() {
     const stream = sayRepeatHello({ name: "World", count: 5 });
     stream.on("data", (res) => {
       const data = res.toObject();
+
+      console.log("res: ", res);
       setRepeatHello((prev) => [...prev, data.message]);
     });
     stream.on("error", (err) => {
