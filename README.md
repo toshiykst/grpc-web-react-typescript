@@ -11,17 +11,17 @@ This is based on https://github.com/grpc/grpc-web/tree/master/net/grpc/gateway/e
 make init
 ```
 
-2. Run the Envoy proxy.(in another shell)
+1. Run the Envoy proxy.(in another terminal)
 ```shell
 make run-envoy
 ```
 
-3. Run the react client.(in another shell)
+3. Run the react client.(in another terminal)
 ```shell
 make run-frontend
 ```
 
-4. Run Run the NodeJS gRPC Service.(in another shell)
+1. Run the NodeJS gRPC Service.(in another terminal)
 ```shell
 make run-server
 ```
