@@ -21,7 +21,7 @@ make run-envoy
 make run-frontend
 ```
 
-1. Run the NodeJS gRPC Service.(in another terminal)
+4. Run the NodeJS gRPC Service.(in another terminal)
 ```shell
 make run-server
 ```
