@@ -19,6 +19,7 @@ gen-proto:
 
 clear-proto:
 	rm -rf $(FRONTEND_PROTO_PATH)
+	rm -rf $(SERVER_PROTO_PATH)
 
 init:
 	cd frontend && yarn
