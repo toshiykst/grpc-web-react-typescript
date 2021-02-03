@@ -7,6 +7,7 @@ This is based on https://github.com/grpc/grpc-web/tree/master/net/grpc/gateway/e
 ※ To run `make gen-proto` command, we need:
 - the protoc binary, _and_
 - the protoc-gen-grpc-web plugin.
+
 https://github.com/grpc/grpc-web/tree/master/net/grpc/gateway/examples/helloworld#generate-protobuf-messages-and-client-service-stub
 
 # Getting started
