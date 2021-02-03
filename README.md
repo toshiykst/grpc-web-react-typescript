@@ -4,6 +4,10 @@ Sample gRPC-Web using react with typescript client
 
 This is based on https://github.com/grpc/grpc-web/tree/master/net/grpc/gateway/examples/helloworld
 
+※ To run `make gen-proto` command, we need:
+- the protoc binary, _and_
+- the protoc-gen-grpc-web plugin.
+https://github.com/grpc/grpc-web/tree/master/net/grpc/gateway/examples/helloworld#generate-protobuf-messages-and-client-service-stub
 
 # Getting started
 1. Install dependencies.
@@ -11,7 +15,7 @@ This is based on https://github.com/grpc/grpc-web/tree/master/net/grpc/gateway/e
 make init
 ```
 
-1. Run the Envoy proxy.(in another terminal)
+2. Run the Envoy proxy.(in another terminal)
 ```shell
 make run-envoy
 ```
