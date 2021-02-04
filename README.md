@@ -4,12 +4,6 @@ Sample gRPC-Web using react with typescript client
 
 This is based on https://github.com/grpc/grpc-web/tree/master/net/grpc/gateway/examples/helloworld
 
-※ To run `make gen-proto` command, we need:
-- the protoc binary, _and_
-- the protoc-gen-grpc-web plugin.
-
-https://github.com/grpc/grpc-web/tree/master/net/grpc/gateway/examples/helloworld#generate-protobuf-messages-and-client-service-stub
-
 # Getting started
 1. Install dependencies.
 ```shell
@@ -30,3 +24,10 @@ make run-frontend
 ```shell
 make run-server
 ```
+
+# Note
+To run `make gen-proto` command, we need:
+- the protoc binary, _and_
+- the protoc-gen-grpc-web plugin.
+
+https://github.com/grpc/grpc-web/tree/master/net/grpc/gateway/examples/helloworld#generate-protobuf-messages-and-client-service-stub
